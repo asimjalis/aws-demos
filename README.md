@@ -1,2 +1,3 @@
-# aws-demos
-AWS demos
+## Quick Notes
+
+Notes on different technologies and frameworks.
