@@ -1,3 +1,3 @@
-## Quick Notes
+## AWS Demos
 
-Notes on different technologies and frameworks.
+Demos using AWS services.
