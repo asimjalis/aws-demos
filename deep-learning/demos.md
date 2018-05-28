@@ -35,7 +35,7 @@ Paste this into a browser.
 - Go to SageMaker's Jupyter notebook on `demo1`.
 - Click on *sample-notebooks*.
 - Find this notebook.
-    - `sample-notebooksintroduction_to_applying_machine_learninglinear_time_series_forecast`
+    - `sample-notebooks/introduction_to_applying_machine_learning/linear_time_series_forecast`
 
 ## Time Series Analysis
 
