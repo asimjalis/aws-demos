@@ -7,6 +7,7 @@ Element | Limit
 Row size | 512 KB
 SQL code | 100 KB
 Mapping parallelism | 64
+Destination streams | 3
 
 Note: Kinesis uses 1 KB of metadata which counts against row size.
 
