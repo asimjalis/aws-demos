@@ -128,4 +128,4 @@ What languages does Glue ETL support?
 
 What does Glue ETL code look like?
 
-- You can see an example of a Glue ETL application [here](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-samples-legislators.html)
+- You can see an example of a Glue ETL application [here](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-samples-legislators.html).
