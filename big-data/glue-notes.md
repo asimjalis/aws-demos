@@ -18,9 +18,10 @@ What data sources can crawlers analyze?
 - RDS
 - JDBC
 
-Is it possible to exclude paths and tables?
+How do crawlers decide what to crawl?
 
-- Crawlers allow excluding paths and tables.
+- Crawlers crawl data sources you specify. 
+- You can exclude paths in the data sources.
 
 What happens when a crawler runs?
 
@@ -36,17 +37,14 @@ What type of scheduling do crawlers support?
 
 - Regular or on-demand. 
 
-How do crawlers decide what to crawl?
-
-- Crawlers crawl data sources you specify. 
-- You can exclude paths in the data sources.
-
 ## Classifiers
 
 What is a classifier?
 
 - Crawlers use classifiers to extract schema from data.
-- Glue provides built-in classifiers and supports custom classifiers.
+- Glue has built-ins, and also allows custom classifiers.
+- Custom classifiers have higher precedence than the built-in classifiers.
+- The first classifier to recognize your data is used.
 
 What do classifiers output?
 
@@ -72,6 +70,11 @@ What is Grok?
 - Example: `%{TIMESTAMP_ISO8601:timestamp} %{GREEDYDATA:message}`
 - `TIMESTAMP_ISO8601` and `GREEDYDATA` are defined using regex.
 - Glue provides common built-in patterns e.g. `INT`, `UNIXPATH`, `IPV4`.
+
+How do JSON and XML classifiers work?
+
+- For JSON you specify the JSON path expression that maps JSON elements to table rows.
+- For XML you specify the row tag that maps the XML elements to table rows.
 
 ## Jobs
 
