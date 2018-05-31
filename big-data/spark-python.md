@@ -35,7 +35,24 @@ df.selectExpr('count(*)').show()
 spark.sql('select count(*) from sales').show()
 ```
 
-## Data Frames From CSV
+## Create Data
+
+```bash
+# Create directory.
+mkdir sales-data
+
+# Data file.
+#ID,Date,Store,State,Product,Amount
+cat << END > sales-data/file1.csv
+101,2014-11-13,100,WA,331,300.00
+104,2014-11-18,700,OR,329,450.00
+102,2014-11-15,203,CA,321,200.00
+106,2014-11-19,202,CA,331,330.00
+103,2014-11-17,101,WA,373,750.00
+105,2014-11-19,202,CA,321,200.00
+END
+
+## DataFrames From CSV
 
 ```python
 df = spark.read.csv('sales-data')
@@ -49,7 +66,7 @@ df = df.toDF('id','date','store','state','product','amount')
 df.printSchema()
 ```
 
-## Data Frame Analytics
+## DataFrame API
 
 ```python
 # Sample
@@ -72,4 +89,13 @@ df.filter(df.amount > 500).show()
 # Group By
 df.groupBy('state').agg({'amount':'sum'}).show()
 df.groupBy('state').agg({'amount':'max','product':'count'}).show()
+```
+
+## SQL on DataFrames
+
+We can use SQL instead of the DataFrame API.
+
+```python
+df.registerTempTable('sales')
+spark.sql('select SUM(amount) FROM sales').show()
 ```
