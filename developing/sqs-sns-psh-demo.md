@@ -20,8 +20,8 @@ $account_id = aws sts get-caller-identity --output text --query Account
 $region = aws configure get region
 
 # Generate queue ARNs.
-$queue_a_arn = "arn:aws:sqs:$region:$account_id:MySQSQueue_A"
-$queue_b_arn = "arn:aws:sqs:$region:$account_id:MySQSQueue_B"
+$queue_a_arn = "arn:aws:sqs:${region}:${account_id}:MySQSQueue_A"
+$queue_b_arn = "arn:aws:sqs:${region}:${account_id}:MySQSQueue_B"
 
 # Subscribe queues to OrderSNSTopic.
 aws sns subscribe --topic-arn $order_topic_arn --protocol sqs --notification-endpoint $queue_a_arn
@@ -31,7 +31,7 @@ aws sns subscribe --topic-arn $order_topic_arn --protocol sqs --notification-end
 $queue_a_sub_arn = aws sns list-subscriptions --output text `
   --query "Subscriptions[?ends_with(Endpoint,'MySQSQueue_A')].SubscriptionArn" 
 
-$queue_b_sub_arn = aws sns list-subscriptions --output-text `
+$queue_b_sub_arn = aws sns list-subscriptions --output text `
   --query "Subscriptions[?ends_with(Endpoint,'MySQSQueue_B')].SubscriptionArn" 
 
 # Print subscriptions.
