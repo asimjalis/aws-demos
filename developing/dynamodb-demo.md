@@ -35,38 +35,52 @@ if table_exists('orders'):
 table = table_create('orders', 'customer', 'order')
 
 # Put item.
-table.put_item(Item={ 'customer': 'alice', 'order': '001', 'product': 'coffee', 'price': 100 })
-response = table.get_item(Key={ 'customer': 'alice', 'order': '001' })
+table.put_item(Item={ 
+  'customer': 'alice',
+  'order': '001',
+  'product': 'coffee',
+  'price': 100 })
+response = table.get_item(Key={ 
+  'customer': 'alice', 
+  'order': '001' })
 pp.pprint(response)
 
 # Put item. Notice that price can be string: no type constraints.
-table.put_item(Item={ 'customer': 'alice', 'order': '002', 'product': 'coffee', 'price': "hi"})
-response = table.get_item(Key={ 'customer': 'alice', 'order': '001' })
+table.put_item(Item={ 
+  'customer': 'alice',
+  'order': '002',
+  'product': 'coffee',
+  'price': "hi"})
+response = table.get_item(Key={
+  'customer': 'alice',
+  'order': '002' })
 pp.pprint(response['Item'])
-
-# Scan all items.
-pp.pprint(table.scan()['Items'])
 
 # Update item.
-table.update_item(Key={ 'customer': 'alice', 'order': '002' },
-    UpdateExpression='SET price = :val1', 
-    ExpressionAttributeValues={ ':val1': 26 })
-response = table.get_item(Key={ 'customer': 'alice', 'order': '002' })
+table.update_item(
+  Key={ 
+    'customer': 'alice',
+    'order': '002' },
+  UpdateExpression='SET price = :val1', 
+  ExpressionAttributeValues={ 
+    ':val1': 26 })
+response = table.get_item(Key={ 
+  'customer': 'alice',
+  'order': '002' })
 pp.pprint(response['Item'])
-
-# Scan all items.
-pp.pprint(table.scan()['Items'])
 
 # Update item again.
-table.update_item(Key={ 'customer': 'alice', 'order': '002' },
-    UpdateExpression='SET #foo = :val1', 
-    ExpressionAttributeNames={ '#foo': 'price' },
-    ExpressionAttributeValues={ ':val1': 27 })
-response = table.get_item(Key={ 'customer': 'alice', 'order': '002' })
+table.update_item(
+  Key={ 
+    'customer': 'alice',
+    'order': '002' },
+  UpdateExpression='SET #foo = :val1', 
+  ExpressionAttributeNames={ '#foo': 'price' },
+  ExpressionAttributeValues={ ':val1': 27 })
+response = table.get_item(Key={
+  'customer': 'alice',
+  'order': '002' })
 pp.pprint(response['Item'])
-
-# Scan all items.
-pp.pprint(table.scan()['Items'])
 
 # Delete item.
 table.delete_item(Key={ 'customer': 'alice', 'order': '001' })
