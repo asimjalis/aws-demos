@@ -34,18 +34,18 @@ with open(file2_path, "r") as f:
 
 ```bash
 # Create bucket
-aws s3 mb s3://asimj-iad
+aws s3 mb s3://asimj-tmp
 
 # Put some objects in it
 echo "hello world" > 1.txt
-aws s3 cp 1.txt s3://asimj-iad/a/b/c/1.txt
-aws s3 cp 1.txt s3://asimj-iad/a-b-c-1.txt
+aws s3 cp 1.txt s3://asimj-tmp/a/b/c/1.txt
+aws s3 cp 1.txt s3://asimj-tmp/a-b-c-1.txt
 ```
 
 ```python
 import boto3
 s3 = boto3.resource('s3')
-bucket = s3.Bucket('asimj-iad')
+bucket = s3.Bucket('asimj-tmp')
 
 for f in bucket.objects.all(): print f
 
