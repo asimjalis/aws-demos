@@ -28,6 +28,7 @@ s3.download_file(bucket, key, file2_path)
 # Check content.
 with open(file2_path, "r") as f:
     print f.read()
+```
 
 ## Test List
 
