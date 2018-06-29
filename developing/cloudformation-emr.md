@@ -56,9 +56,9 @@ aws cloudformation deploy \
 ## Asynchronously Deploy Template
 
 ```bash
-s3 emr1.yaml s3://asimj-tmp/emr1.yaml
+aws s3 cp emr1.yaml s3://asimj-tmp/emr1.yaml
 aws cloudformation create-stack \
-  --stack-name s2 \
+  --stack-name s5 \
   --template-url http://asimj-tmp.s3.amazonaws.com/emr1.yaml
 ```
 
