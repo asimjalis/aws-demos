@@ -10,8 +10,6 @@ Resources:
     Type: "AWS::EMR::Cluster"
     Properties: 
       Name: MyTestCluster
-      TerminationProtected: false
-      Ec2KeyName: isen
       Applications:
         - Name: Hadoop
         - Name: Hive
@@ -28,7 +26,6 @@ Resources:
           InstanceType: "m3.xlarge"
           Market: "ON_DEMAND"
           Name: "Core"
-        TerminationProtected: true
       JobFlowRole: "EMR_EC2_DefaultRole"
       ServiceRole: "EMR_DefaultRole"
       ReleaseLabel: "emr-5.14.0"
