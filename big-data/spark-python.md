@@ -51,6 +51,7 @@ cat << END > sales-data/file1.csv
 103,2014-11-17,101,WA,373,750.00
 105,2014-11-19,202,CA,321,200.00
 END
+```
 
 ## DataFrames From CSV
 
