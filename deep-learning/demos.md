@@ -39,9 +39,9 @@ Paste this into a browser.
 
 ## Time Series Analysis
 
-- This notebook explores predicting gas prices.
-- It builds a model by using recent prices as features. 
-- The label or target is price one day after the prices used as features. 
+- This notebook explores predicting gasoline sales.
+- It builds a model by using weekly sales as features. 
+- The label or target is the number of barrels of gasoline sold one week after the sales used as features. 
 - You can use this approach on any time series data.
 
 # MXNet Computations
