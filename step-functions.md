@@ -160,7 +160,7 @@ Resources:
             var amount = price * quantity
             callback(null, amount);
           };
-      Runtime: "nodejs4.3"
+      Runtime: "nodejs8.10"
       Timeout: "60"
 
   OrderProcessingMachine:
@@ -183,6 +183,15 @@ Resources:
             }
           - { CalculateAmountFunctionArn: !GetAtt [CalculateAmountFunction,Arn] }
       RoleArn: !GetAtt [ StatesExecutionRole, Arn ]
+```
+
+## Deploying
+
+To deploy, save template into `step-functions-stack1.yaml` then run
+this command.
+
+```bash
+aws cloudformation deploy --stack-name step-function-stack1 --template-file step-functions-stack1.yaml --capabilities CAPABILITY_IAM
 ```
 
 ## Testing
