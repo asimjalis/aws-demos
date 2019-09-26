@@ -7,14 +7,16 @@ Install Spark from <http://spark.apache.org>.
 Configure your environment.
 
 ```sh
-export SPARK_HOME=${HOME}/spark-2.3.0-bin-hadoop2.7
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export SPARK_HOME=$(find $HOME/Downloads -maxdepth 1 -name 'spark*bin*' | 
+  grep -v tgz | tail -n 1)
 export PATH=${PATH}:${SPARK_HOME}/bin
 ```
 
 ## IPython Shell
 
 ```sh
-PYSPARK_DRIVER_PYTHON=ipython pyspark
+PYSPARK_DRIVER_PYTHON=ipython
 ```
 
 ## RDD
@@ -37,6 +39,8 @@ spark.sql('select count(*) from sales').show()
 
 ## Create Data
 
+In a Bash shell, run these commands.
+
 ```bash
 # Create directory.
 mkdir sales-data
@@ -54,6 +58,8 @@ END
 ```
 
 ## DataFrames From CSV
+
+In the PySpark shell run these commands.
 
 ```python
 df = spark.read.csv('sales-data')
